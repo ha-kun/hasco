@@ -2,6 +2,7 @@
 import React from 'react';
 import { css, jsx } from '@emotion/core';
 import { Button, Card, Divider, Grid, Input, Segment } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const App: React.FC = () => {
   const wrapperCard = css`
@@ -33,82 +34,94 @@ const App: React.FC = () => {
       line-height: 60vh;
     }
   `;
+  const wrapperHistoryLink = css`
+    color: black !important;
+  `;
 
   return (
-    <Segment inverted color="black">
-      <Grid columns={2} relaxed="very">
-        <Grid.Column>
-          <Card centered fluid css={wrapperCard}>
-            <Card.Content textAlign="center">
-              <Input
-                css={wrapperInput}
-                transparent
-                placeholder="Name"
-                size="massive"
-              />
-            </Card.Content>
-            <Card.Content textAlign="center" css={wrapperScore}>
-              <p>0</p>
-            </Card.Content>
-            <Card.Content textAlign="center">
-              <Grid columns="equal">
-                <Grid.Row columns="equal">
-                  <Grid.Column>
-                    <Button.Group css={wrapperOr}>
-                      <Button positive> + </Button>
-                      <Button.Or />
-                      <Button positive> - </Button>
-                    </Button.Group>
-                  </Grid.Column>
-                  <Grid.Column>
-                    <Button inverted color="green" css={wrapperWinButton}>
-                      Win
-                    </Button>
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </Card.Content>
-          </Card>
-        </Grid.Column>
-        <Grid.Column>
-          <Card centered fluid css={wrapperCard}>
-            <Card.Content textAlign="center">
-              <Input
-                css={wrapperInput}
-                transparent
-                placeholder="Name"
-                size="massive"
-              />
-            </Card.Content>
-            <Card.Content textAlign="center" css={wrapperScore}>
-              <p>0</p>
-            </Card.Content>
-            <Card.Content textAlign="center">
-              <Grid columns="equal">
-                <Grid.Row columns="equal">
-                  <Grid.Column>
-                    <Button.Group css={wrapperOr}>
-                      <Button positive> + </Button>
-                      <Button.Or />
-                      <Button positive> - </Button>
-                    </Button.Group>
-                  </Grid.Column>
-                  <Grid.Column>
-                    <Button inverted color="green" css={wrapperWinButton}>
-                      Win
-                    </Button>
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </Card.Content>
-          </Card>
-        </Grid.Column>
-      </Grid>
+    <Segment.Group>
+      <Segment inverted color="black">
+        <Grid columns={2} relaxed="very">
+          <Grid.Column>
+            <Card centered fluid css={wrapperCard}>
+              <Card.Content textAlign="center">
+                <Input
+                  css={wrapperInput}
+                  transparent
+                  placeholder="Name"
+                  size="massive"
+                />
+              </Card.Content>
+              <Card.Content textAlign="center" css={wrapperScore}>
+                <p>0</p>
+              </Card.Content>
+              <Card.Content textAlign="center">
+                <Grid columns="equal">
+                  <Grid.Row columns="equal">
+                    <Grid.Column>
+                      <Button.Group css={wrapperOr}>
+                        <Button positive> + </Button>
+                        <Button.Or />
+                        <Button positive> - </Button>
+                      </Button.Group>
+                    </Grid.Column>
+                    <Grid.Column>
+                      <Button inverted color="green" css={wrapperWinButton}>
+                        Win
+                      </Button>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+              </Card.Content>
+            </Card>
+          </Grid.Column>
+          <Grid.Column>
+            <Card centered fluid css={wrapperCard}>
+              <Card.Content textAlign="center">
+                <Input
+                  css={wrapperInput}
+                  transparent
+                  placeholder="Name"
+                  size="massive"
+                />
+              </Card.Content>
+              <Card.Content textAlign="center" css={wrapperScore}>
+                <p>0</p>
+              </Card.Content>
+              <Card.Content textAlign="center">
+                <Grid columns="equal">
+                  <Grid.Row columns="equal">
+                    <Grid.Column>
+                      <Button.Group css={wrapperOr}>
+                        <Button positive> + </Button>
+                        <Button.Or />
+                        <Button positive> - </Button>
+                      </Button.Group>
+                    </Grid.Column>
+                    <Grid.Column>
+                      <Button inverted color="green" css={wrapperWinButton}>
+                        Win
+                      </Button>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+              </Card.Content>
+            </Card>
+          </Grid.Column>
+        </Grid>
 
-      <Divider vertical inverted>
-        VS
-      </Divider>
-    </Segment>
+        <Divider vertical inverted>
+          VS
+        </Divider>
+      </Segment>
+      <Segment inverted color="black" textAlign="center">
+        <Link to="/history">
+          <Button css={wrapperHistoryLink} color="olive">
+            History
+          </Button>
+        </Link>
+      </Segment>
+    </Segment.Group>
   );
 };
 
